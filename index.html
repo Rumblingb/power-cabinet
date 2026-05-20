@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Power Cabinet — Build Your Political Dream Team by AgentPay Labs</title>
+<meta name="description" content="Power Cabinet is a Tinder-style political strategy game. Swipe to draft world leaders, build your cabinet, and dominate the global league. Free on iOS & Android.">
+<meta property="og:title" content="Power Cabinet — Swipe. Draft. Dominate.">
+<meta property="og:description" content="Build your political cabinet by swiping on world leaders. Track promises, score points, and climb the global league.">
+<meta property="og:image" content="https://rumblingb.github.io/agentpay-highway/og.png">
+<meta property="og:url" content="https://rumblingb.github.io/power-cabinet/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://rumblingb.github.io/agentpay-highway/og.png">
+<link rel="canonical" href="https://rumblingb.github.io/power-cabinet/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"MobileApplication","name":"Power Cabinet","description":"Tinder-style political strategy game — swipe to draft world leaders, build your cabinet, track promise receipts.","applicationCategory":"GameApplication","operatingSystem":"iOS, Android","offers":[{"@type":"Offer","price":"0","priceCurrency":"USD","name":"Free"},{"@type":"Offer","price":"9","priceCurrency":"USD","name":"Pro","billingPeriod":"P1M"}],"author":{"@type":"Organization","name":"AgentPay Labs","url":"https://rumblingb.github.io"}}</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a0a;--surface:#111111;--surface2:#181818;--ink:#111111;--paper:#fff7e6;--accent:#6366f1;--accent2:#a855f7;--gold:#f7c948;--red:#ef233c;--green:#2dc653;--teal:#00a9a5;--text:#e8e8f0;--muted:#888}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+nav{padding:.9rem 2rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.07);background:rgba(10,10,10,.9);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.nav-logo{font-weight:900;font-size:1rem;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:.5px}
+.nav-links{display:flex;gap:1.25rem;align-items:center}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.85rem;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff!important;padding:.4rem 1rem;border-radius:6px;font-weight:700!important;font-size:.8rem!important}
+.hero{text-align:center;padding:6rem 1.5rem 4rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 45% at 50% 0%,rgba(99,102,241,.18) 0%,transparent 70%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(99,102,241,.1);border:1px solid rgba(99,102,241,.25);color:#a78bfa;padding:.28rem .9rem;border-radius:99px;font-size:.75rem;font-weight:700;margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:.07em}
+.hero h1{font-size:clamp(2.5rem,7vw,4.5rem);font-weight:900;line-height:1.05;margin-bottom:1rem;letter-spacing:-.03em}
+.hero h1 .grad{background:linear-gradient(135deg,var(--accent),var(--accent2),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:1.15rem;color:var(--muted);max-width:560px;margin:0 auto 2.5rem;line-height:1.7}
+.hero-btns{display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.45rem;padding:.85rem 1.8rem;border-radius:10px;text-decoration:none;font-weight:700;font-size:.95rem;transition:all .22s;cursor:pointer;border:none;font-family:inherit}
+.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;box-shadow:0 4px 20px rgba(99,102,241,.35)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(99,102,241,.45)}
+.btn-secondary{background:rgba(255,255,255,.06);color:var(--text);border:1px solid rgba(255,255,255,.1)}
+.btn-secondary:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.18)}
+.btn-gold{background:linear-gradient(135deg,var(--gold),#f4a261);color:#111;box-shadow:0 4px 20px rgba(247,201,72,.3)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(247,201,72,.4)}
+.cards-preview{display:flex;gap:-20px;justify-content:center;margin:4rem auto 0;max-width:700px;padding:0 2rem;position:relative}
+.mock-card{background:var(--surface);border:2px solid rgba(255,255,255,.1);border-radius:16px;width:160px;padding:1.25rem;text-align:center;flex-shrink:0;transition:transform .3s}
+.mock-card:nth-child(1){transform:rotate(-6deg) translateY(12px);z-index:1}
+.mock-card:nth-child(2){transform:scale(1.08);z-index:3;border-color:rgba(99,102,241,.5);box-shadow:0 12px 40px rgba(99,102,241,.2)}
+.mock-card:nth-child(3){transform:rotate(6deg) translateY(12px);z-index:1}
+.mock-card .flag{font-size:2rem;margin-bottom:.5rem}
+.mock-card .country-code{font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.25rem}
+.mock-card .pol-name{font-size:.85rem;font-weight:800;margin-bottom:.5rem}
+.mock-card .stat-row{display:flex;justify-content:space-between;margin-top:.35rem}
+.mock-card .stat-label{font-size:.6rem;color:var(--muted)}
+.mock-card .stat-val{font-size:.7rem;font-weight:800}
+.mock-card .rarity{display:inline-block;font-size:.6rem;font-weight:800;padding:.1rem .45rem;border-radius:4px;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.05em}
+.r-gold{background:rgba(247,201,72,.15);color:var(--gold)}
+.r-bronze{background:rgba(180,100,50,.15);color:#cd7f32}
+.r-silver{background:rgba(180,180,180,.15);color:#c0c0c0}
+.swipe-hint{position:absolute;top:50%;right:calc(50% - 140px);transform:translateY(-50%);background:rgba(99,102,241,.9);color:#fff;padding:.4rem .9rem;border-radius:99px;font-size:.75rem;font-weight:700;letter-spacing:.03em;animation:floatHint 2s ease-in-out infinite}
+@keyframes floatHint{0%,100%{transform:translateY(-50%) translateX(0)}50%{transform:translateY(-50%) translateX(6px)}}
+.draft-badge{position:absolute;top:-8px;right:-8px;background:var(--green);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:900}
+.stats-strip{display:flex;gap:0;justify-content:center;margin:5rem auto 0;max-width:800px;padding:0 1.5rem;flex-wrap:wrap}
+.stat-box{flex:1;min-width:130px;text-align:center;padding:1.5rem 1rem;border:1px solid rgba(255,255,255,.07);background:var(--surface)}
+.stat-box:first-child{border-radius:12px 0 0 12px}
+.stat-box:last-child{border-radius:0 12px 12px 0}
+.stat-n{font-size:2rem;font-weight:900;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-l{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-top:.2rem}
+.section{padding:5rem 1.5rem;max-width:1100px;margin:0 auto}
+.section-title{text-align:center;margin-bottom:3.5rem}
+.section-title h2{font-size:clamp(1.75rem,3vw,2.4rem);font-weight:900;margin-bottom:.5rem}
+.section-title p{color:var(--muted);font-size:1rem;max-width:520px;margin:0 auto}
+.steps{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.5rem}
+.step{background:var(--surface);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:1.75rem;transition:border-color .2s}
+.step:hover{border-color:rgba(99,102,241,.3)}
+.step .step-num{font-size:1.8rem;margin-bottom:.75rem}
+.step h3{font-size:1rem;font-weight:800;margin-bottom:.35rem}
+.step p{font-size:.85rem;color:var(--muted);line-height:1.55}
+.pol-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem}
+.pol-card{background:var(--surface);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:1.25rem;display:flex;align-items:center;gap:.9rem;transition:all .2s}
+.pol-card:hover{border-color:rgba(99,102,241,.35);transform:translateY(-1px)}
+.pol-flag{font-size:1.6rem;width:40px;text-align:center}
+.pol-info .pol-n{font-size:.9rem;font-weight:800}
+.pol-info .pol-r{font-size:.7rem;color:var(--muted)}
+.pol-info .pol-stats{display:flex;gap:.5rem;margin-top:.3rem}
+.pol-stat{font-size:.65rem;padding:.1rem .35rem;border-radius:3px;font-weight:700}
+.stat-promise{background:rgba(45,198,83,.15);color:#2dc653}
+.stat-odds{background:rgba(99,102,241,.15);color:#a78bfa}
+.stat-vol{background:rgba(239,35,60,.12);color:#ef233c}
+.pricing{display:flex;gap:1.25rem;justify-content:center;flex-wrap:wrap;margin-top:1rem}
+.plan{background:var(--surface);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:2.25rem 1.75rem;flex:1;min-width:250px;max-width:320px;text-align:center}
+.plan.featured{border-color:rgba(99,102,241,.4);box-shadow:0 0 0 1px rgba(99,102,241,.25),0 12px 40px rgba(99,102,241,.1)}
+.plan .price{font-size:2.5rem;font-weight:900;margin:.5rem 0}
+.plan .price span{font-size:1rem;font-weight:400;color:var(--muted)}
+.plan ul{list-style:none;margin:1.5rem 0;text-align:left}
+.plan ul li{padding:.45rem 0;font-size:.85rem}
+.plan ul li::before{content:'✓ ';color:var(--green);font-weight:900}
+.plan h3{font-size:1.2rem;font-weight:800}
+.plan p.sub{font-size:.8rem;color:var(--muted);margin-top:.25rem}
+.footer{text-align:center;padding:2.5rem 1.5rem;border-top:1px solid rgba(255,255,255,.07)}
+.footer a{color:var(--muted);text-decoration:none;margin:0 .6rem;font-size:.8rem}
+.footer a:hover{color:var(--text)}
+.footer p{font-size:.75rem;color:var(--muted);margin-top:1rem}
+.cta-section{text-align:center;padding:4rem 1.5rem;border-top:1px solid rgba(255,255,255,.07)}
+.cta-section h2{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900;margin-bottom:.75rem}
+.cta-section p{color:var(--muted);max-width:480px;margin:0 auto 2rem;font-size:1rem}
+.coming-soon{background:rgba(247,201,72,.1);border:1px solid rgba(247,201,72,.2);border-radius:8px;padding:.5rem 1rem;display:inline-flex;align-items:center;gap:.45rem;font-size:.85rem;font-weight:700;color:var(--gold);margin-bottom:1.5rem}
+@media(max-width:640px){
+  .cards-preview{flex-direction:column;align-items:center;gap:1rem}
+  .mock-card{width:100%;max-width:220px}
+  .mock-card:nth-child(1),.mock-card:nth-child(3){transform:none}
+  .swipe-hint{display:none}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo">POWER CABINET</div>
+  <div class="nav-links">
+    <a href="#how">How It Works</a>
+    <a href="#leaders">Leaders</a>
+    <a href="#pricing">Pricing</a>
+    <a href="https://rumblingb.github.io/agentpay-labs-hub/privacy/power-cabinet.html">Privacy</a>
+    <a href="#" class="nav-cta">Coming Soon</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">🏛️ Political Strategy</div>
+  <h1>Swipe. Draft.<br><span class="grad">Dominate.</span></h1>
+  <p>Swipe through world leaders, draft your ultimate cabinet, and track their promises. Score points, climb the league, and prove you'd run the world better.</p>
+  <div class="hero-btns">
+    <span class="btn btn-primary">App Store <span style="opacity:.7">→</span></span>
+    <span class="btn btn-secondary">Google Play <span style="opacity:.7">→</span></span>
+    <span class="btn btn-gold">Pro Cabinet $9.99</span>
+  </div>
+</section>
+
+<section class="section" id="how">
+  <div class="section-title">
+    <h2>How It Works</h2>
+    <p>Three simple moves to build your political dream team.</p>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">👆</div>
+      <h3>Swipe to Draft</h3>
+      <p>Swipe right on leaders who earn a spot in your cabinet. Swipe left on the rest. Every swipe counts toward your score.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">🏆</div>
+      <h3>Build Your Cabinet</h3>
+      <p>Fill 8 slots (free) or 16 slots (Pro). Assign a captain for bonus points. Watch promise receipts increase your score.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">📊</div>
+      <h3>Climb the League</h3>
+      <p>Your cabinet's combined stats determine your global rank. Each season resets the leaderboard — new meta, new winners.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="leaders">
+  <div class="section-title">
+    <h2>World Leaders</h2>
+    <p>200+ real politicians. Each with unique stats: Promise Rate, Odds of Fulfillment, and Volatility.</p>
+  </div>
+  <div class="pol-grid">
+    <div class="pol-card"><div class="pol-flag">🇺🇸</div><div class="pol-info"><div class="pol-n">Donald Trump</div><div class="pol-r">United States • Gold</div><div class="pol-stats"><span class="pol-stat stat-promise">86% prom.</span><span class="pol-stat stat-odds">47% odds</span><span class="pol-stat stat-vol">22% vol.</span></div></div></div>
+    <div class="pol-card"><div class="pol-flag">🇬🇧</div><div class="pol-info"><div class="pol-n">Keir Starmer</div><div class="pol-r">United Kingdom • Silver</div><div class="pol-stats"><span class="pol-stat stat-promise">92% prom.</span><span class="pol-stat stat-odds">71% odds</span><span class="pol-stat stat-vol">12% vol.</span></div></div></div>
+    <div class="pol-card"><div class="pol-flag">🇮🇳</div><div class="pol-info"><div class="pol-n">Narendra Modi</div><div class="pol-r">India • Gold</div><div class="pol-stats"><span class="pol-stat stat-promise">78% prom.</span><span class="pol-stat stat-odds">88% odds</span><span class="pol-stat stat-vol">15% vol.</span></div></div></div>
+    <div class="pol-card"><div class="pol-flag">🇷🇺</div><div class="pol-info"><div class="pol-n">Vladimir Putin</div><div class="pol-r">Russia • Gold</div><div class="pol-stats"><span class="pol-stat stat-promise">34% prom.</span><span class="pol-stat stat-odds">91% odds</span><span class="pol-stat stat-vol">35% vol.</span></div></div></div>
+    <div class="pol-card"><div class="pol-flag">🇦🇷</div><div class="pol-info"><div class="pol-n">Javier Milei</div><div class="pol-r">Argentina • Gold</div><div class="pol-stats"><span class="pol-stat stat-promise">95% prom.</span><span class="pol-stat stat-odds">82% odds</span><span class="pol-stat stat-vol">41% vol.</span></div></div></div>
+    <div class="pol-card"><div class="pol-flag">🇫🇷</div><div class="pol-info"><div class="pol-n">Emmanuel Macron</div><div class="pol-r">France • Silver</div><div class="pol-stats"><span class="pol-stat stat-promise">64% prom.</span><span class="pol-stat stat-odds">59% odds</span><span class="pol-stat stat-vol">18% vol.</span></div></div></div>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+  <div class="section-title">
+    <h2>Pick Your Tier</h2>
+    <p>Free to play. Pro to own the room.</p>
+  </div>
+  <div class="pricing">
+    <div class="plan">
+      <h3>Free Cabinet</h3>
+      <div class="price">$0<span>/mo</span></div>
+      <p class="sub">Build a starter cabinet</p>
+      <ul>
+        <li>8 politician slots</li>
+        <li>Basic stats & scoring</li>
+        <li>Leaderboard ranking</li>
+        <li>Standard promissory notes</li>
+      </ul>
+      <a href="#" class="btn btn-secondary" style="width:100%;justify-content:center">Coming Soon</a>
+    </div>
+    <div class="plan featured">
+      <h3>Pro Cabinet</h3>
+      <div class="price">$9.99<span>/mo</span></div>
+      <p class="sub">Unlock the full power</p>
+      <ul>
+        <li>16 politician slots</li>
+        <li>Wild card & event cards</li>
+        <li>Cabinet export & share</li>
+        <li>Challenger mode (v2)</li>
+        <li>Priority support & beta access</li>
+      </ul>
+      <a href="https://buy.stripe.com/..." class="btn btn-gold" style="width:100%;justify-content:center">Coming Soon</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="coming-soon">🚀 Launching soon — join the waitlist</div>
+  <p>Be the first to know when Power Cabinet goes live. No spam, just the launch date.</p>
+  <a href="mailto:vishar.rumbling@gmail.com?subject=Power%20Cabinet%20Waitlist" class="btn btn-primary">Join Waitlist</a>
+</section>
+
+<footer class="footer">
+  <a href="https://rumblingb.github.io/agentpay-labs-hub/privacy/power-cabinet.html">Privacy Policy</a>
+  <a href="mailto:vishar.rumbling@gmail.com">Support</a>
+  <a href="https://rumblingb.github.io">AgentPay Labs</a>
+  <p>&copy; 2026 AgentPay Labs. Not affiliated with any political party, organization, or country. Satirical use only.</p>
+</footer>
+</body>
+</html>
